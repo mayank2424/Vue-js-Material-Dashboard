@@ -1,6 +1,9 @@
 {
   "name": "dashboard-app",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.16.2"
+  },
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open",
