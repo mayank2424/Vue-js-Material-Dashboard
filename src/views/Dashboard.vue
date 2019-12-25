@@ -119,7 +119,7 @@
               <template slot="items" slot-scope="{ index, item }">
                 <td class="table_data_td page_table">
                   {{ item.name }}
-                  <v-icon class="table_icon">mdi-open-in-new</v-icon>
+                  <v-icon @click="openGraph(item)" class="table_icon">mdi-open-in-new</v-icon>
                 </td>
                 <td class="text-xs-left table_data_td">{{ item.visitors }}</td>
                 <td class="text-xs-left table_data_td">
@@ -186,6 +186,41 @@
         </v-card>
       </v-flex>
     </v-layout>
+
+    <v-dialog
+      v-model="dialog"
+      width="500"
+    >
+      <v-card>
+        <v-card-title
+          class=""
+          style="color:#495057;font-size:1.25rem"
+          primary-title
+        >
+          {{activeDialogData.page_name}}
+        </v-card-title>
+
+        <v-card-text>
+          <area-chart 
+            :colors="['#0f65db', '#e8effa']"
+            :data="activeDialogData.chartData"
+            ></area-chart>
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="#0c64db"
+            text
+            @click="dialog = false"
+          >
+            Close
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -202,6 +237,10 @@ export default {
   },
   data() {
     return {
+      activeDialogData:{
+          page_name:'',
+          chartData:{}
+      },
       statsCards: {
         data: [
           {
@@ -478,12 +517,20 @@ export default {
         0: false,
         1: false,
         2: false
-      }
+      },
+      dialog:false
     };
   },
   methods: {
     complete(index) {
       this.list[index] = !this.list[index];
+    },
+    openGraph(data) {
+        this.activeDialogData = {
+            'page_name':data.name,
+            'chartData':data.chartData
+        }
+        this.dialog = true;
     }
   },
   created() {
@@ -566,7 +613,7 @@ export default {
 }
 .table_header {
   padding: 20px;
-  color: #3c3d41;
+  color: #495057;
 }
 .table_header h2 {
   font-weight: 500 !important;

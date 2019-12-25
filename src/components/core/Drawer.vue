@@ -298,7 +298,7 @@ export default {
 }
 .recent_title {
   color: #92989b;
-  font-size: 0.98rem !important;
+  font-size: 0.9rem !important;
   font-weight: 500 !important;
   text-transform: uppercase;
 }
