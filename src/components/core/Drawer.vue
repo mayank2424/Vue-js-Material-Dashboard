@@ -6,9 +6,10 @@
     persistent
     mobile-break-point="991"
     width="260"
+    class="draw"
     style="box-shadow:none !important"
   >
-    <v-layout class="fill-height" column>
+    <v-layout class="fill-height draw" column>
       <v-list-tile class="first_header">
         <v-list-tile-title style="text-align:center" class="title">
           <v-icon>mdi-home</v-icon>
@@ -156,7 +157,7 @@ export default {
         text: "Inbox"
       },
       {
-        to: "/invoicing",
+        to: "/invoice",
         icon: "mdi-receipt",
         text: "Invoicing"
       },
@@ -226,6 +227,14 @@ export default {
 </script>
 
 <style>
+.draw::-webkit-scrollbar {
+    display: none !important;
+}
+
+.draw {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
 .drawer_profile {
   display: flex;
   flex-flow: column;

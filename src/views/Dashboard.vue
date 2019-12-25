@@ -6,6 +6,7 @@
         <v-card class="dash_card">
           <v-toolbar
             id="core-toolbar"
+            class="dash_nav"
             style="background: #fff;box-shadow:none !important;border-bottom:1px solid #e2e2e2"
           >
             <div class="v-toolbar-title">
@@ -13,10 +14,9 @@
                 style="font-size:1.25rem !important"
                 class="tertiary--text font-weight-normal"
               >
-                {{ activeDashboardTab.title }}
+            {{ activeDashboardTab.title }}
               </v-toolbar-title>
             </div>
-            <v-spacer />
             <v-toolbar-items>
               <v-flex align-center layout py-2>
                 <Select
@@ -24,6 +24,7 @@
                   :label="selectedMonthinVisitors"
                   width="150px"
                   type="month"
+                  style="margin:0 7px !important"
                 />
                 <Select
                   :items="visitor_year"
@@ -115,7 +116,7 @@
                 />
               </template>
               <template slot="items" slot-scope="{ index, item }">
-                <td class="table_data_td">
+                <td class="table_data_td page_table">
                   {{ item.name }}
                   <v-icon class="table_icon">mdi-open-in-new</v-icon>
                 </td>
@@ -567,10 +568,17 @@ export default {
 .table_data_td {
   color: #414348 !important;
 }
+.table_data_td.page_table{
+    display:flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
+}
 .table_icon {
   float: right;
   font-size: 22px;
   color: #a0a0a8;
+  margin-left:10px;
 }
 .graph_td {
   display: flex;
@@ -587,5 +595,28 @@ export default {
 }
 .prog_class {
   padding-left: 0 !important;
+}
+.dash_nav .v-toolbar__content {
+    display: flex !important;
+    flex-flow: row;
+    justify-content: space-between !important;
+}
+
+@media(max-width:390px) {
+    .dash_nav .v-toolbar__content {
+        display: flex !important;
+        height:80px !important;
+        flex-flow: column !important;
+        justify-content: space-between !important;
+    }
+}
+
+@media(max-width:670px) {
+    .graph_td .chartjs-render-monitor {
+        margin-left:20px !important;
+    }
+    .table_icon {
+        margin-left:50px;
+    }
 }
 </style>

@@ -9,7 +9,7 @@ import './plugins'
 
 // Application imports
 import App from './App'
-import router from '@/router'
+import router from './routes'
 import store from './store';
 import Chartkick from 'vue-chartkick';
 import chart from 'chart.js';
