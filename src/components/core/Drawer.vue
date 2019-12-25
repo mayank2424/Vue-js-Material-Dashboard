@@ -20,7 +20,7 @@
         <v-list-item>
           <v-list-item-avatar>
             <v-img
-              src="https://cdn.vuetifyjs.com/images/john.png"
+              src="/images/girl.svg"
               class="profile_img"
             ></v-img>
           </v-list-item-avatar>
@@ -29,7 +29,8 @@
         <v-list-item>
           <v-list-item-content class="drawer_profile">
             <v-list-item-title class="user_title"
-              >Martha Blair</v-list-item-title
+              >Martha Blair<span><v-icon class="online_icon">mdi-checkbox-blank-circle</v-icon></span>
+            </v-list-item-title
             >
             <v-list-item-subtitle
               style="color:grey;font-size:0.9rem;font-weight:normal"
@@ -257,6 +258,14 @@ export default {
 .user_title {
   font-size: 1rem;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+.online_icon {
+     font-size: 7px !important;
+    vertical-align: middle !important;
+    margin-left: 4px !important;
+    color: #51ac40 !important;
 }
 .first_header {
   padding: 7.9px 0 !important;
@@ -320,6 +329,9 @@ export default {
 }
 .nested_tile .drawer_list_title {
     color: #717075 !important;
+}
+.nested_tile a {
+    height:30px !important;
 }
 .nested_tile  a:hover  {
     background: none !important;

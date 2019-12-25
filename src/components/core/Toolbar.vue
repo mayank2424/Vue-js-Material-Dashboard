@@ -9,6 +9,7 @@
     <div class="v-toolbar-title nav_dash">
       <v-toolbar-title
         class="tertiary--text font-weight-normal"
+        style="font-size:1.25rem !important"
       >
         <v-btn
           v-if="responsive"
@@ -30,7 +31,7 @@
         layout
         py-2
       >
-       <Select :items="appLang" label="Eng" width="80px"/>
+       <Select :items="appLang" label="Eng" width="80px" prepend-icon="map"/>
       </v-flex>
     </v-toolbar-items>
   </v-toolbar>
