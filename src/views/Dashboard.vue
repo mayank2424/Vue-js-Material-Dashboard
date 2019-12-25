@@ -2,7 +2,7 @@
   <v-container fill-height fluid grid-list-xl class="main_cont">
     <v-layout wrap>
     
-      <v-flex md12 sm12 lg12>
+      <v-flex md12 sm12 lg12 style="padding-top:7px !important">
         <v-card class="dash_card">
           <v-toolbar
             id="core-toolbar"
