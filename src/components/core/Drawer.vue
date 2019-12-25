@@ -12,7 +12,7 @@
     <v-layout class="fill-height draw" column>
       <v-list-tile class="first_header">
         <v-list-tile-title style="text-align:center" class="title">
-          <v-icon>mdi-home</v-icon>
+          <v-icon >mdi-home</v-icon>
         </v-list-tile-title>
       </v-list-tile>
       <v-divider />
@@ -20,7 +20,7 @@
         <v-list-item>
           <v-list-item-avatar>
             <v-img
-              src="/images/girl.svg"
+              src="https://www.genymotion.com/wp-content/uploads/2016/04/genymotion-cloud-developer.svg"
               class="profile_img"
             ></v-img>
           </v-list-item-avatar>
@@ -33,7 +33,7 @@
             </v-list-item-title
             >
             <v-list-item-subtitle
-              style="color:grey;font-size:0.9rem;font-weight:normal"
+              style="color:#a1a2a8;font-size:0.95rem;font-weight:500"
               >Developer</v-list-item-subtitle
             >
           </v-list-item-content>
@@ -256,7 +256,8 @@ export default {
   margin-bottom: 10px;
 }
 .user_title {
-  font-size: 1rem;
+  font-size: 1.25rem;
+  color: #495057 !important;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -274,10 +275,13 @@ export default {
   font-size: 1rem !important;
   font-weight: 500;
 }
-.drawer_tabs {
+.drawer_tabs  {
   padding: 10px 15px;
 }
-.v-list-item > .primary--text {
+.drawer_tabs .v-list__tile {
+   color:#495057;
+}
+.drawer_tabs .primary--text {
   color: #0c64db !important;
 }
 .v-list-item a {
@@ -294,7 +298,7 @@ export default {
 }
 .recent_title {
   color: #92989b;
-  font-size: 0.9rem !important;
+  font-size: 0.98rem !important;
   font-weight: 500 !important;
   text-transform: uppercase;
 }
@@ -318,13 +322,16 @@ export default {
 .drawer_group_tab .v-list-item a  {
     border: none !important;
 }
-
+.drawer_tabs .v-list__group__items {
+    padding-top:10px;
+    padding-bottom:10px;
+}
 .drawer_group_tab .v-list-item a:hover  {
     background: none !important;
 }
 .drawer_group_tab .nested_tile {
     margin-left:40px;
-    height:35px;
+    height:40px;
     cursor: pointer;
 }
 .nested_tile .drawer_list_title {

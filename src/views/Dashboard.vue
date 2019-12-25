@@ -1,5 +1,5 @@
 <template>
-  <v-container fill-height fluid grid-list-xl>
+  <v-container fill-height fluid grid-list-xl class="main_cont">
     <v-layout wrap>
     
       <v-flex md12 sm12 lg12>
@@ -24,13 +24,14 @@
                   :label="selectedMonthinVisitors"
                   width="150px"
                   type="month"
-                  style="margin:0 7px !important"
+                  class='select_tag'
                 />
                 <Select
                   :items="visitor_year"
                   :label="selectedYearinVisitors"
                   width="120px"
                   type="year"
+                   class="select_tag"
                 />
               </v-flex>
             </v-toolbar-items>
@@ -39,9 +40,10 @@
               <v-fade-transition mode="out-in">
                 <column-chart
                 v-if="activeDashboardTab.id == '0'"
-                :dataset="{ maxBarThickness: 12 }"
+                :dataset="{ maxBarThickness: 11 ,backgroundColor:'#0e65da', borderColor:'#0e65da',hoverBackgroundColor:'#0c52b2'}"
                 :stacked="true"
-                :colors="['blue', 'blue']"
+                :colors="['blue','#0b52b1']"
+                :round="2"
                 :data="
                     getDashBoardData.visitors[selectedMonthinVisitors][
                     selectedYearinVisitors
@@ -105,7 +107,6 @@
           <div>
             <v-data-table
               :headers="headers"
-              rounded
               :items="items"
               hide-actions
             >
@@ -207,7 +208,7 @@ export default {
             title: "Realtime users",
             value: "56",
             growth: "-9.8%",
-            growthColor: "red",
+            growthColor: "#e8472a",
             chartData: {
               "2017-01-01 00:00:00 -0800": 3,
               "2017-01-01 00:01:00 -0800": 5,
@@ -223,7 +224,7 @@ export default {
             title: "Total visits",
             value: "54,598",
             growth: "+11.8%",
-            growthColor: "green",
+            growthColor: "#52ad43",
             chartData: {
               "2017-01-01 00:00:00 -0800": 4,
               "2017-01-01 00:01:00 -0800": 6,
@@ -237,9 +238,9 @@ export default {
           },
           {
             title: "Bounce Rate",
-            value: "73.67",
+            value: "73.67%",
             growth: "+18.8%",
-            growthColor: "green",
+            growthColor: "#52ad43",
             chartData: {
               "2017-01-01 00:00:00 -0800": 5,
               "2017-01-01 00:01:00 -0800": 3,
@@ -255,7 +256,7 @@ export default {
             title: "Visit duration",
             value: "1m 10s",
             growth: "-19.8%",
-            growthColor: "red",
+            growthColor: "#e8472a",
             chartData: {
               "2017-01-01 00:00:00 -0800": 2,
               "2017-01-01 00:01:00 -0800": 3,
@@ -352,7 +353,6 @@ export default {
           sortable: false,
           text: "Unique Page ",
           value: "salary",
-          align: "right"
         },
         {
           sortable: false,
@@ -504,8 +504,10 @@ export default {
 
 <style>
 .select_tag {
-  max-width: 140px;
-  margin: 0 10px !important;
+ 
+}
+.main_cont  .layout .flex   {
+    padding:15px 12px !important;
 }
 .chart_container {
   box-shadow: 0 1px 4px 0 rgba(32, 33, 36, 0.28) !important;
@@ -516,10 +518,11 @@ export default {
   display: flex;
   flex-flow: row;
   justify-content: space-between;
+  margin-bottom:10px;
 }
 .dash_card {
      border-radius: 5px !important;
-  border: 1px solid #e4e4e4 !important;
+  border: 1px solid #f1f1f3 !important;
     box-shadow: 0 1px 1px -5px rgba(0, 0, 0, 0.2), 0 1px 0px 0 rgba(0, 0, 0, 0.14),
     0 1px 3px 0 rgba(0, 0, 0, 0.12) !important;
 }
@@ -532,7 +535,7 @@ export default {
   /* box-shadow: none !important; */
 }
 .stats_title {
-  color: #92989b;
+  color: #a6a8ad;
   font-size: 0.9rem !important;
   font-weight: 500 !important;
   text-transform: uppercase;
@@ -540,16 +543,24 @@ export default {
 .stats_value {
   font-size: 2.5rem !important;
   margin: 0;
+  margin-top:8px;
   color: #424141;
   font-weight: 400 !important;
 }
 .stats_growth {
-  margin-bottom: -20px;
+  margin-bottom:0;
   margin-right: 8px;
   line-height: 25px;
   font-weight: 500 !important;
 }
-
+.select_tag {
+    font-size:1rem !important;
+     max-width: 140px;
+     margin: 0 5px !important;
+}
+.select_tag .v-label {
+    font-size:1rem !important;
+}
 .tableClass {
   width: 100%;
 }
@@ -578,7 +589,7 @@ export default {
 .table_icon {
   float: right;
   font-size: 22px;
-  color: #a0a0a8;
+  color: #a0a0a8 !important;
   margin-left:10px;
 }
 .graph_td {
