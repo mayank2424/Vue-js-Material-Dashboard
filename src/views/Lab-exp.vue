@@ -8,7 +8,10 @@
       justify-center
       align-center
     >
-     <h2>Experiment Tab Data Also coming.....</h2>
+    <v-card class="drawer_cards">
+      <h2>Experiment Tab Data Also coming.....</h2>
+    </v-card>
+
     </v-layout>
   </v-container>
 </template>
@@ -20,3 +23,10 @@ export default {
   })
 }
 </script>
+
+<style scoped>
+  .drawer_cards {
+      padding:20px;
+      border-radius:5px;
+  }
+</style>

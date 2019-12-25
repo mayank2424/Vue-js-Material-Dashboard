@@ -6,7 +6,7 @@
     prominent
     style="background: #fff;border-bottom:1px solid #e2e2e2"
   >
-    <div class="v-toolbar-title">
+    <div class="v-toolbar-title nav_dash">
       <v-toolbar-title
         class="tertiary--text font-weight-normal"
       >
@@ -102,5 +102,10 @@ export default {
 
   .ham_icon {
       color:#585555 !important;
+  }
+  .nav_dash .v-toolbar__title{
+      display: flex !important;
+      flex-flow: row;
+      align-items: center;
   }
 </style>
