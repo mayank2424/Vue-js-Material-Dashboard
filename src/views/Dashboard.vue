@@ -44,6 +44,16 @@
                 :stacked="true"
                 :colors="['blue','#0b52b1']"
                 :round="2"
+                :options="options"
+                :library="{
+                    scales: {
+                        yAxes: [{ 
+                            ticks: {
+                             max: 150 
+                            }
+                        }]
+                    }
+                }"
                 :data="
                     getDashBoardData.visitors[selectedMonthinVisitors][
                     selectedYearinVisitors
@@ -213,7 +223,6 @@
           <v-spacer></v-spacer>
           <v-btn
             color="#0c64db"
-            text
             @click="dialog = false"
           >
             Close
@@ -225,6 +234,7 @@
 </template>
 
 <script>
+import Chartkick from 'vue-chartkick';
 import { mapActions, mapGetters } from "vuex";
 //chart js
 import { Bar, Line } from "vue-chartjs";
@@ -518,7 +528,8 @@ export default {
         1: false,
         2: false
       },
-      dialog:false
+      dialog:false,
+      options:{}
     };
   },
   methods: {
@@ -535,8 +546,16 @@ export default {
   },
   created() {
     console.log("Mounted");
-    console.log(this.activeDashboardTab);
-    console.log(this.getDashBoardData);
+    console.log(Chartkick);
+    // this.options = {
+    //     tooltips: {
+    //         callbacks:{
+    //             label: function(tooltipItem,data) {
+    //                 return "Visitors" + tooltipItem.yLabel
+    //             }
+    //         }
+    //     }
+    // }
   },
   computed: {
     ...mapGetters([
