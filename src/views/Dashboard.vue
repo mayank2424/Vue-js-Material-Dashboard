@@ -18,7 +18,7 @@
               </v-toolbar-title>
             </div>
             <v-toolbar-items class="select_cont">
-              <v-flex align-center layout py-2>
+              <v-flex align-center layout py-2 style="padding:0 !important">
                 <Select
                   :items="visitor_month"
                   :label="selectedMonthinVisitors"
@@ -681,6 +681,9 @@ export default {
 }
 .select_cont{
     justify-content: center;
+}
+.select_cont .flex {
+    padding:0 !important;
 }
 
 @media(max-width:390px) {
