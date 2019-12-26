@@ -294,6 +294,32 @@
         <v-card-text>
           <area-chart 
             :colors="['#0f65db', '#e8effa']"
+            :library="{
+                    tooltips:{
+                        callbacks:{
+                            title:function(tooltipItem, data) {
+                                return data['labels'][tooltipItem[0]['index']] +'th ' + selectedMonthinVisitors + ' ' +selectedYearinVisitors
+                            },
+                           label:function(tooltipItem, data) {
+                               return 'Value' + ' ' + tooltipItem.yLabel
+                           },
+                           labelTextColor: function(tooltipItem, chart) {
+                                return '#3c3d41';
+                            }
+                        },
+                         backgroundColor: '#FFF',
+                        titleFontSize:14,
+                         titleFontColor: '#bdbec2 ',
+                         borderWidth:1,
+                         borderColor:'#f1f1f3',
+                         cornerRadius:5,
+                         xPadding:10
+                    },
+                    animation: {
+					duration: 1500,
+					
+				}
+                }"
             :data="activeDialogData.chartData"
             ></area-chart>
         </v-card-text>
@@ -331,6 +357,7 @@ export default {
     return {
       activeDialogData:{
           page_name:'',
+          visitors:'',
           chartData:{}
       },
       statsCards: {
@@ -621,7 +648,8 @@ export default {
     openGraph(data) {
         this.activeDialogData = {
             'page_name':data.name,
-            'chartData':data.chartData
+            'visitors':data.visitors,
+            'chartData':data.chartData,
         }
         this.dialog = true;
     }
