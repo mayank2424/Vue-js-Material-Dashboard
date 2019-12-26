@@ -236,6 +236,9 @@ export default {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+.v-divider {
+    border-color: #f1f1f3 !important;
+}
 .drawer_profile {
   display: flex;
   flex-flow: column;
@@ -285,7 +288,7 @@ export default {
   color: #0c64db !important;
 }
 .v-list-item a {
-  border-bottom: 1px solid #e4e4e4;
+  border-bottom: 1px solid #f1f1f3 ;
 }
 .v-list__tile__action {
   min-width: 45px !important;
@@ -314,7 +317,7 @@ export default {
   font-weight: normal;
 }
 .drawer_group_tab .v-list__group__header {
-   border-bottom: 1px solid #e4e4e4;
+   border-bottom: 1px solid #f1f1f3 ;
 }
 .drawer_group_tab .v-list__group__header:hover{
     background:none !important;
@@ -336,6 +339,9 @@ export default {
 }
 .nested_tile .drawer_list_title {
     color: #717075 !important;
+}
+.draw .v-divider {
+    border-color:#f1f1f3 !important;
 }
 .nested_tile a {
     height:30px !important;

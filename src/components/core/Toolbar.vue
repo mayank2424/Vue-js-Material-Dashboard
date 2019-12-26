@@ -4,12 +4,12 @@
     app
     flat
     prominent
-    style="background: #fff;border-bottom:1px solid #e2e2e2"
+    style="background: #fff;border-bottom:1px solid #f1f1f3"
   >
     <div class="v-toolbar-title nav_dash">
       <v-toolbar-title
         class="tertiary--text font-weight-normal"
-        style="font-size:1.25rem !important"
+        style="font-size:1.25rem !important;"
       >
         <v-btn
           v-if="responsive"

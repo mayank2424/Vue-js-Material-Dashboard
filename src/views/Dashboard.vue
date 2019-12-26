@@ -7,7 +7,7 @@
           <v-toolbar
             id="core-toolbar"
             class="dash_nav"
-            style="background: #fff;box-shadow:none !important;border-bottom:1px solid #e2e2e2"
+            style="background: #fff;box-shadow:none !important;s"
           >
             <div class="v-toolbar-title">
               <v-toolbar-title
@@ -113,7 +113,7 @@
           <div class="table_header">
             <h2>Most Visited Pages</h2>
           </div>
-          <v-divider />
+          <v-divider/>
           <div>
             <v-data-table
               :headers="headers"
@@ -572,8 +572,17 @@ export default {
 .select_tag {
  
 }
+.dash_nav {
+
+}
 .main_cont  .layout .flex   {
     padding:15px 12px !important;
+}
+.main_cont .v-toolbar  {
+    border-color: #f1f1f3 !important;
+}
+.dash_card .v-table  tr{
+    border-color:#f1f1f3 !important;
 }
 .chart_container {
   box-shadow: 0 1px 4px 0 rgba(32, 33, 36, 0.28) !important;
