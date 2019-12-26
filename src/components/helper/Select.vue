@@ -36,6 +36,13 @@ export default {
   .chart_container .v-toolbar .v-toolbar__content .v-toolbar__items .v-input {
     margin:0 5px !important;
   }
+
+.select_class label {
+    color: #3c3d41 !important;
+}
+.select_class label {
+    font-size: 1rem !important;
+}
   .select_class.v-text-field.v-text-field--solo .v-input__control {
       min-height:36px !important;
   }

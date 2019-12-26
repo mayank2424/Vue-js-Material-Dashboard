@@ -2,7 +2,7 @@
   <v-container fill-height fluid grid-list-xl class="main_cont">
     <v-layout wrap>
     
-      <v-flex md12 sm12 lg12 style="padding-top:7px !important">
+      <v-flex md12 sm12 lg12 style="padding-top:0px !important">
         <v-card class="dash_card">
           <v-toolbar
             id="core-toolbar"
@@ -39,8 +39,9 @@
           <div style="padding:20px;background:white">
               <v-fade-transition mode="out-in">
                 <column-chart
+                height="235px"
                 v-if="activeDashboardTab.id == '0'"
-                :dataset="{ maxBarThickness: 11 ,backgroundColor:'#0e65da', borderColor:'#0e65da',hoverBackgroundColor:'#0c52b2'}"
+                :dataset="{ maxBarThickness: 11 ,backgroundColor:'#0e65da', cornerRadius:10,borderColor:'#0e65da',hoverBackgroundColor:'#0c52b2'}"
                 :stacked="true"
                 :colors="['blue','#0b52b1']"
                 :round="2"
@@ -49,10 +50,35 @@
                     scales: {
                         yAxes: [{ 
                             ticks: {
+                             min:0,
                              max: 150 
                             }
                         }]
-                    }
+                    },
+                    tooltips:{
+                        callbacks:{
+                            title:function(tooltipItem, data) {
+                                return data['labels'][tooltipItem[0]['index']] +'th ' + selectedMonthinVisitors + ' ' +selectedYearinVisitors
+                            },
+                           label:function(tooltipItem, data) {
+                               return 'Visitors' + ' ' + tooltipItem.yLabel
+                           },
+                           labelTextColor: function(tooltipItem, chart) {
+                                return '#3c3d41';
+                            }
+                        },
+                         backgroundColor: '#FFF',
+                        titleFontSize:14,
+                         titleFontColor: '#bdbec2 ',
+                         borderWidth:1,
+                         borderColor:'#f1f1f3',
+                         cornerRadius:5,
+                         xPadding:10
+                    },
+                    animation: {
+					duration: 1500,
+					
+				}
                 }"
                 :data="
                     getDashBoardData.visitors[selectedMonthinVisitors][
@@ -61,15 +87,70 @@
                 "
                 ></column-chart>
             <line-chart
+            height="235px"
               v-if="activeDashboardTab.id == '1'"
+               :library="{
+                    tooltips:{
+                        callbacks:{
+                            title:function(tooltipItem, data) {
+                                return data['labels'][tooltipItem[0]['index']] +'th ' + selectedMonthinVisitors + ' ' +selectedYearinVisitors
+                            },
+                           label:function(tooltipItem, data) {
+                               return 'Performance' + ' ' + tooltipItem.yLabel
+                           },
+                           labelTextColor: function(tooltipItem, chart) {
+                                return '#3c3d41';
+                            }
+                        },
+                         backgroundColor: '#FFF',
+                        titleFontSize:14,
+                         titleFontColor: '#bdbec2 ',
+                         borderWidth:1,
+                         borderColor:'#f1f1f3',
+                         cornerRadius:5,
+                         xPadding:10
+                    },
+                    animation: {
+					duration: 1500,
+					
+				}
+                }"
               :data="
                 getDashBoardData.performanceData[selectedMonthinVisitors][
                   selectedYearinVisitors
                 ]
+                
               "
             ></line-chart>
             <area-chart
+            height="235px"
               v-if="activeDashboardTab.id == '2'"
+               :library="{
+                    tooltips:{
+                        callbacks:{
+                            title:function(tooltipItem, data) {
+                                return data['labels'][tooltipItem[0]['index']] +'th ' + selectedMonthinVisitors + ' ' +selectedYearinVisitors
+                            },
+                           label:function(tooltipItem, data) {
+                               return 'Overall' + ' ' + tooltipItem.yLabel
+                           },
+                           labelTextColor: function(tooltipItem, chart) {
+                                return '#3c3d41';
+                            }
+                        },
+                         backgroundColor: '#FFF',
+                        titleFontSize:14,
+                         titleFontColor: '#bdbec2 ',
+                         borderWidth:1,
+                         borderColor:'#f1f1f3',
+                         cornerRadius:5,
+                         xPadding:10
+                    },
+                    animation: {
+					duration: 1500,
+					
+				}
+                }"
               :data="
                 getDashBoardData.overallData[selectedMonthinVisitors][
                   selectedYearinVisitors
@@ -222,6 +303,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
+          class="close_btn"
             color="#0c64db"
             @click="dialog = false"
           >
@@ -569,11 +651,9 @@ export default {
 </script>
 
 <style>
-.select_tag {
- 
-}
-.dash_nav {
 
+.close_btn .v-btn__content {
+    color:#ececec !important;
 }
 .main_cont  .layout .flex   {
     padding:15px 12px !important;

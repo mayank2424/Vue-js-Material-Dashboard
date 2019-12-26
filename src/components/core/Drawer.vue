@@ -33,7 +33,7 @@
             </v-list-item-title
             >
             <v-list-item-subtitle
-              style="color:#a1a2a8;font-size:0.95rem;font-weight:500"
+              style="color:#a1a2a8;font-size:0.95rem;"
               >Developer</v-list-item-subtitle
             >
           </v-list-item-content>
@@ -236,9 +236,7 @@ export default {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-.v-divider {
-    border-color: #f1f1f3 !important;
-}
+
 .drawer_profile {
   display: flex;
   flex-flow: column;
@@ -278,6 +276,9 @@ export default {
   font-size: 1rem !important;
   font-weight: 500;
 }
+.drawer_group_tab {
+    border-bottom:1px solid #f1f1f3;
+}
 .drawer_tabs  {
   padding: 10px 15px;
 }
@@ -316,11 +317,14 @@ export default {
   color: #414349 !important;
   font-weight: normal;
 }
-.drawer_group_tab .v-list__group__header {
+/* .drawer_group_tab .v-list__group__header {
    border-bottom: 1px solid #f1f1f3 ;
-}
+} */
 .drawer_group_tab .v-list__group__header:hover{
     background:none !important;
+}
+.drawer_group_tab::before ,.drawer_group_tab::after {
+    background:none !important
 }
 .drawer_group_tab .v-list-item a  {
     border: none !important;
